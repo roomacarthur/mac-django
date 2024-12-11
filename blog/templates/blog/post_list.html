@@ -10,7 +10,7 @@
             <div class="col p-4 d-flex flex-column position-static">
               <strong class="d-inline-block mb-2 text-success">Category</strong>
               <h2 class="mb-1">{{ post.title }}</h2>
-              <div class="mb-1 text-muted">{{ post..created_at|date:"M d, Y" }}</div>
+              <div class="mb-1 text-muted">{{ post.created_at|date:"M d, Y" }}</div>
               <p class="card-text mb-auto">{{ post.content|slice:":50"}}</p>
               <a href="{{ post.get_absolute_url }}" class="stretched-link pt-2">Continue reading</a>
             </div>
