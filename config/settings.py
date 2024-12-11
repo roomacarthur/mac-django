@@ -32,11 +32,13 @@ DEBUG = True if os.path.isfile('env.py') else False
 
 
 ALLOWED_HOSTS = [
-    '8000-roomacarthur-macdjango-bgj1rb42jpw.ws.codeinstitute-ide.net'
+    '8000-roomacarthur-macdjango-bgj1rb42jpw.ws.codeinstitute-ide.net',
+    'mac-django-aed0298248fb.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-roomacarthur-macdjango-bgj1rb42jpw.ws.codeinstitute-ide.net',
+    'https://mac-django-aed0298248fb.herokuapp.com',
 ]
 
 # internal IPs for django debug toolbar
