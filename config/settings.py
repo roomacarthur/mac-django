@@ -35,6 +35,15 @@ ALLOWED_HOSTS = [
     '8000-roomacarthur-macdjango-bgj1rb42jpw.ws.codeinstitute-ide.net'
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://8000-roomacarthur-macdjango-bgj1rb42jpw.ws.codeinstitute-ide.net',
+]
+
+# internal IPs for django debug toolbar
+INTERNAL_IPS = [
+    "127.0.0.1",
+]
+
 
 # Application definition
 
@@ -45,6 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar', # django debug toolbar
     #project apps
     'blog',
     'forum',
@@ -61,6 +71,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "debug_toolbar.middleware.DebugToolbarMiddleware", # django debug toolbar
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -76,6 +87,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'config.context_processors.active_nav_context', # get current path.
             ],
         },
     },
