@@ -3,6 +3,7 @@ from django.urls import path, include
 from debug_toolbar.toolbar import debug_toolbar_urls
 
 urlpatterns = [
+    path('', include('home.urls')),
     path('admin/', admin.site.urls),
     path('forum/', include('forum.urls')),
     path('chat/', include('chat.urls')),

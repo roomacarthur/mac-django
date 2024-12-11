@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar', # django debug toolbar
     #project apps
+    'home',
     'blog',
     'forum',
     'social',
