@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.text import slugify
 from django.urls import reverse
+from colorfield.fields import ColorField
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
@@ -25,3 +26,10 @@ class Post(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:post_detail', kwargs={'slug': self.slug})
+
+
+
+class PostCategory(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True, blank=True)
+    color = ColorField(default="#000")
