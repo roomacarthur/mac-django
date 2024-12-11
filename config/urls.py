@@ -8,7 +8,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('forum/', include('forum.urls')),
     path('chat/', include('chat.urls')),
-    path('blog/', include('blog.urls')),
+    path('blog/', include('blog.urls', namespace="blog")),
     path('social/', include('social.urls')),
     path('booking/', include('booking.urls'))
 ] + debug_toolbar_urls()
