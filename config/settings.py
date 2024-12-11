@@ -33,6 +33,7 @@ DEBUG = True if os.path.isfile('env.py') else False
 
 ALLOWED_HOSTS = [
     '8000-roomacarthur-macdjango-bgj1rb42jpw.ws.codeinstitute-ide.net',
+    '127.0.0.1',
     'mac-django-aed0298248fb.herokuapp.com',
 ]
 
