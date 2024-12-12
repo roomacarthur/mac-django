@@ -10,5 +10,6 @@ urlpatterns = [
     path('chat/', include('chat.urls')),
     path('blog/', include('blog.urls', namespace="blog")),
     path('social/', include('social.urls')),
-    path('booking/', include('booking.urls'))
+    path('booking/', include('booking.urls')),
+    path('markdownx/', include('markdownx.urls')),
 ] + debug_toolbar_urls()

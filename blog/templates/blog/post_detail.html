@@ -1,15 +1,19 @@
 {% extends "base.html" %} 
 {% block title %}Blog - {{object.title}}{% endblock title %} 
 {% block content %}
+
 <div class="row g-5">
   <div class="col-md-8">
+    {% if object.feature_image %}
+    <img class="w-100"src="{{ post.feature_image.url }}" alt="{{ post.title }}" />
+    {% endif %}
     <h1 class="pb-4 mb-4 border-bottom">{{ object.title }}</h1>
     <p>
       Published by <span class="fw-bold">{{object.author }}</span> on
       <span class="fw-bold">{{ object.created_at|date:"M d, Y" }}</span>
     </p>
 
-    <article class="blog-post">{{ object.content }}</article>
+    <article class="blog-post">{{ rendered_content|safe }}</article>
     {% if object.author == user or user.is_staff %}
     <a class="btn btn-success" href="{% url 'blog:post_update' object.slug %}"
       ><i class="bi bi-pencil-square"></i

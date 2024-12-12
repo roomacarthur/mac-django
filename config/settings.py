@@ -63,9 +63,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'crispy_forms',
     'crispy_bootstrap5',
-    'debug_toolbar', # django debug toolbar
+    'debug_toolbar',  # django debug toolbar
     'colorfield',
-    #project apps
+    'markdownx',
+    # project apps
     'home',
     'blog',
     'forum',
@@ -73,6 +74,11 @@ INSTALLED_APPS = [
     'chat',
     'booking',
 ]
+
+
+MARKDOWNX_MEDIA_PATH = "markdownx/"  # Optional: Media path for uploaded images
+MARKDOWNX_URLS_PATH = '/markdownx/markdownify/'  # URL for Markdown processing
+
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
@@ -168,6 +174,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

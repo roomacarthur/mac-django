@@ -4,6 +4,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse_lazy
 from django.contrib import messages
 from .models import Post
+from markdownx.utils import markdownify
 
 class PostListView(ListView):
     model = Post
@@ -18,9 +19,14 @@ class PostDetailView(DetailView):
     model = Post
     template_name = 'blog/post_detail.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['rendered_content'] = markdownify(self.object.content)
+        return context
+
 class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Post
-    fields = ['title', 'content', 'is_published']
+    fields = ['title', 'content', 'categories', 'tags', 'feature_image', 'meta_title', 'meta_description', 'is_published']
     template_name = 'blog/post_form.html'
     success_message = "Post created successfully!"
 
@@ -30,7 +36,7 @@ class PostCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
 
 class PostUpdateView(LoginRequiredMixin, UserPassesTestMixin, SuccessMessageMixin, UpdateView):
     model = Post
-    fields = ['title', 'content', 'is_published']
+    fields = ['title', 'content', 'categories', 'tags', 'feature_image', 'meta_title', 'meta_description', 'is_published']
     template_name = 'blog/post_form.html'
     success_message = "Post updated successfully!"
 
