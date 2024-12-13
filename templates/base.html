@@ -20,7 +20,8 @@
 <script src="{% static 'markdownx/markdownx.js' %}"></script>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    {% include 'partials/navbar.html' %} {% if messages %}
+    {% include 'partials/navbar.html' %} 
+    {% if messages %}
     <div class="container mt-3">
       {% for message in messages %}
       <div
