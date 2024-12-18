@@ -7,6 +7,7 @@ This Django application has been built to try and dsiplay the different types of
 
  - MacChat
  - MacBlog
+ https://neutronx.github.io/django-markdownx/example/
  - MacBookings
  - MacForum
  - MAcSocial
